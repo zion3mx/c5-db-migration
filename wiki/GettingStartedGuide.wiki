@@ -92,7 +92,7 @@ Spring is part of our standard development stack on our Java projects, and it’
 </bean>
 }}}
 
-And now we declare our MigrationManager instance. Note the ‘init-method’ attribute:
+And now we declare our !MigrationManager instance. Note the ‘init-method’ attribute:
 
 {{{
 <bean id="migrationManager"
@@ -102,7 +102,7 @@ And now we declare our MigrationManager instance. Note the ‘init-method’ att
 </bean>
 }}}
 
-And then you define something that’s going to use the defined DataSource. Note the ‘depends-on’ attribute:
+And then you define something that’s going to use the defined !DataSource. Note the ‘depends-on’ attribute:
 
 {{{
 <bean id="userService"
@@ -114,4 +114,4 @@ And then you define something that’s going to use the defined DataSource. Note
 
 This is obviously a little contrived for the sake of example, but you get the point. In a typical application the thing that would depend on the datasource is a Hibernate !SessionFactory.
 
-You can visit the source code for this example on the C5 public subversion repository [https://svn.carbonfive.com/public/christian/migration-sample2/trunk here].
+You can visit the source code for this example on the Carbon Five public subversion repository [https://svn.carbonfive.com/public/christian/migration-sample2/trunk here].
