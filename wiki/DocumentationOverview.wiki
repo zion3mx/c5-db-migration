@@ -1,0 +1,6 @@
+#summary Summary of all available documentation
+
+The following documentation resources are available:
+
+* GettingStartedGuide
+* ExtendingTheFramework
