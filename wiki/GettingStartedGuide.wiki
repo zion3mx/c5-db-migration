@@ -1,4 +1,13 @@
-=Migrating using Maven=
+= Getting Started =
+
+C5 DB Migration currently supports two different approaches to database migrations:
+
+  * Manually triggered database migration from the command-line using Maven 2
+  * Auto-migration from the application during application initialization
+
+These scenarios are described in turn below:
+
+==Migrating using Maven==
 
 This functionality is easy to enable in a mavenized project. First you add the Carbon Five public plugin repository:
 
@@ -67,7 +76,7 @@ Note that he database must exist for the migrations to take place as we do not c
 
 I’ve created a simple, complete sample that shows off this functionality, it’s located on the Carbon Five public subversion repository [http://svn.carbonfive.com/public/christian/migration-sample1/trunk here]. Check it out and then read the readme.txt at the top of the project.
 
-=Migrating from your Application=
+==Migrating from your Application==
 
 The other usage scenario is to auto-migrate during application startup. At the core of the framework, there’s an interface called !MigrationManager which has two implementations: !DataSourceMigrationManager and !DriverManagerMigrationManager. Migration happens right after a datasource (of the javax.sql variety) is created.
 
