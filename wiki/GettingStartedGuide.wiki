@@ -1,13 +1,113 @@
-#summary Getting Started Guide
+=Migrating using Maven=
 
-= Introduction =
+This functionality is easy to enable in a mavenized project. First you add the Carbon Five public plugin repository:
 
-Add your content here.
+{{{
+<pluginRepositories>
+  <pluginRepository>
+    <id>c5-public-repository</id>
+    <url>http://mvn.carbonfive.com/public</url>
+  </pluginRepository>
+</pluginRepositories>
+}}}
 
+And then you configure the migration plugin:
 
-= Details =
+{{{
+<plugin>
+  <groupId>com.carbonfive</groupId>
+  <artifactId>maven-migration-plugin</artifactId>
+  <version>0.9-SNAPSHOT</version>
+  <configuration>
+    <defaultEnvironment>test</defaultEnvironment>
+    <environments>
+      <environment>
+        <name>default</name>
+        <driverClass>com.mysql.jdbc.Driver</driverClass>
+        <username>dev</username>
+        <password>dev</password>
+      </environment>
+      <environment>
+        <name>test</name>
+        <jdbcURL>jdbc:mysql://localhost/myapp_test</jdbcURL>
+      </environment>
+      <environment>
+        <name>development</name>
+        <jdbcURL>jdbc:mysql://localhost/myapp_development</jdbcURL>
+      </environment>
+    </environments>
+  </configuration>
+  <dependencies>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.5</version>
+    </dependency>
+  </dependencies>
+</plugin>
+}}}
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+You’ll notice that we’ve got 2 environments configured. You can have as many as you need and you can specify which you want to migrate on the command line. If none are specified the default environment will be migrated. In this example we’re specifying the dependency on our JDBC driver so that the plugin has access to the code it needs to connect the database.
+
+Lastly, you drop in your migration scripts into the src/main/resources/db/migrations directory, naming them using the pattern NNN_description.sql, where NNN is three digits indicating the script sequence. Some examples might be:
+
+    * 001_create_users_table.sql
+    * 002_add_default_users.sql
+    * 003_add_lastvisit_column.sql
+
+The description is optional and isn’t used for anything, it’s just there so that other developers can get an idea of what a script does without having to open it.
+
+From the command line, you can run the migration plugin like this:
+$ mvn migration:migrate
+
+Note that he database must exist for the migrations to take place as we do not create missing databases (yet).
+
+I’ve created a simple, complete sample that shows off this functionality, it’s located on the Carbon Five public subversion repository [http://svn.carbonfive.com/public/christian/migration-sample1/trunk here]. Check it out and then read the readme.txt at the top of the project.
+
+=Migrating from your Application=
+
+The other usage scenario is to auto-migrate during application startup. At the core of the framework, there’s an interface called MigrationManager which has two implementations: DataSourceMigrationManager and DriverManagerMigrationManager. Migration happens right after a datasource (of the javax.sql variety) is created.
+
+Migrating from your application is as easy as instantiating one of these early in the startup cycle and invoking the migrate() method, something like this:
+
+{{{
+MigrationManager migrationManager = new
+    DriverManagerMigrationManager(“com.mysql.jdbc.Driver”, “jdbc:mysql://localhost/myapp_test”, “dev”, “dev”);
+migrationManager.migrate();
+}}}
+
+Of course this needs to happen before anything else in the application uses the database; we want to database to be updated completely before it’s used.
+
+Spring is part of our standard development stack on our Java projects, and it’s easy to enforce these dependencies in Spring configuration. First we define a data source for the application:
+
+{{{
+<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+  <property name="driverClassName" value="org.h2.Driver"/>
+  <property name="url" value="jdbc:h2:file:~/.h2/migration_sample2_test"/>
+  <property name="username" value="dev"/>
+  <property name="password" value="dev"/>
+</bean>
+}}}
+And now we declare our MigrationManager instance. Note the ‘init-method’ attribute:
+
+{{{
+<bean id="migrationManager"
+    class="com.carbonfive.db.migration.DataSourceMigrationManager"
+    init-method="migrate">
+  <constructor-arg ref="dataSource"/>
+</bean>
+}}}
+
+And then you define something that’s going to use the defined DataSource. Note the ‘depends-on’ attribute:
+
+{{{
+<bean id="userService"
+    class="com.carbonfive.migration.sample2.UserService"
+    depends-on="migrationManager">
+  <constructor-arg ref="dataSource"/>
+</bean>
+}}}
+
+This is obviously a little contrived for the sake of example, but you get the point. In a typical application the thing that would depend on the datasource is a Hibernate SessionFactory.
+
+You can visit the source code for this example on the C5 public subversion repository [https://svn.carbonfive.com/public/christian/migration-sample2/trunk here].
