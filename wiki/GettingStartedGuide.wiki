@@ -123,4 +123,4 @@ And then you define something that’s going to use the defined !DataSource. Not
 
 This is obviously a little contrived for the sake of example, but you get the point. In a typical application the thing that would depend on the datasource is a Hibernate !SessionFactory.
 
-You can visit the source code for this example on the Carbon Five public subversion repository [https://svn.carbonfive.com/public/christian/migration-sample2/trunk here].
+You can check out the source code for this example on the Carbon Five public subversion repository [https://svn.carbonfive.com/public/christian/migration-sample2/trunk here].
