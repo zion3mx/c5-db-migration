@@ -1,5 +1,3 @@
-= Getting Started =
-
 C5 DB Migration currently supports two different approaches to database migrations:
 
   * Manually triggered database migration from the command-line using Maven 2
