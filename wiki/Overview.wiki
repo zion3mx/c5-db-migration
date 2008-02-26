@@ -2,9 +2,9 @@
 
 = Documentation =
 
-  * GettingStartedGuide
-  * DevelopersGuide
-  * ChangeLog
+  * [GettingStartedGuide Getting Started Guide]
+  * [DevelopersGuide Developers Guide]
+  * [ChangeLog Change Log]
 
 = Source Code =
 
