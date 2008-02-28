@@ -74,6 +74,8 @@ Note that he database must exist for the migrations to take place as we do not c
 
 I’ve created a simple, complete sample that shows off this functionality, it’s located on the Carbon Five public subversion repository [http://svn.carbonfive.com/public/christian/migration-sample1/trunk here]. Check it out and then read the readme.txt at the top of the project.
 
+For more information about the maven plugin, check out the [MavenPlugin maven-db-migration-plugin] docs.
+
 ==Migrating from your Application==
 
 The other usage scenario is to auto-migrate during application startup. At the core of the framework, there’s an interface called !MigrationManager which has two implementations: !DataSourceMigrationManager and !DriverManagerMigrationManager. Migration happens right after a datasource (of the javax.sql variety) is created.
