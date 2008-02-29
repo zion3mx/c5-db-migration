@@ -1,1 +1,52 @@
-WORK IN PROGRESS
+==Goals==
+
+The maven plugin has two goals:
+
+  * migrate:migrate - attempts to migrate the database to the latest version.
+  * migrate:validate - checks to see if the database is up to date.
+
+==Configuration==
+
+|| *Option* || *Description* || *Required* || *Default* ||
+|| defaultEnvironment || ... || No || the first environment ||
+|| environments || Collection of one or more environments || Yes || N/A ||
+|| environment/name || ... || Yes || N/A ||
+|| environment/driverClass || ... || Yes || N/A ||
+|| environment/username|| ... || Yes || N/A ||
+|| environment/password|| ... || Yes || N/A ||
+
+==Examples==
+
+{{{
+<plugin>
+    <groupId>com.carbonfive</groupId>
+    <artifactId>maven-migration-plugin</artifactId>
+    <version>0.9-SNAPSHOT</version>
+    <configuration>
+        <defaultEnvironment>test</defaultEnvironment>
+        <environments>
+            <environment>
+                <name>default</name>
+                <driverClass>com.mysql.jdbc.Driver</driverClass>
+                <username>dev</username>
+                <password>dev</password>
+            </environment>
+            <environment>
+                <name>test</name>
+                <jdbcURL>jdbc:mysql://localhost/adventure_planner_test</jdbcURL>
+            </environment>
+            <environment>
+                <name>development</name>
+                <jdbcURL>jdbc:mysql://localhost/adventure_planner_development</jdbcURL>
+            </environment>
+        </environments>
+    </configuration>
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.5</version>
+        </dependency>
+    </dependencies>
+</plugin>
+}}}
