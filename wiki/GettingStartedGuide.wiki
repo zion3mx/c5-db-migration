@@ -74,7 +74,7 @@ Note that he database must exist for the migrations to take place as we do not c
 
 I’ve created a simple, complete sample that shows off this functionality, it’s located on the Carbon Five public subversion repository [http://svn.carbonfive.com/public/christian/migration-sample1/trunk here]. Check it out and then read the readme.txt at the top of the project.
 
-For more information about the maven plugin, check out the [MavenPlugin maven-db-migration-plugin] docs.
+For more information about the maven plugin, check out the [MavenPlugin maven plugin] docs.
 
 ==Migrating from your Application==
 
@@ -124,3 +124,5 @@ And then you define something that’s going to use the defined !DataSource. Not
 This is obviously a little contrived for the sake of example, but you get the point. In a typical application the thing that would depend on the datasource is a Hibernate !SessionFactory.
 
 You can check out the source code for this example on the Carbon Five public subversion repository [https://svn.carbonfive.com/public/christian/migration-sample2/trunk here].
+
+For more information about using the migration framework programmatically, check out the [DevelopersGuide developer] docs.
