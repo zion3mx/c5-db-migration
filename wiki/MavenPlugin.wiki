@@ -19,9 +19,23 @@ The examples below will help make these configuration options more clear.
 
 ==Examples==
 
+===Plugin Repository===
+
+Before using the maven db migration plugin you'll need to add the following plugin repository:
+
+{{{
+<pluginRepositories>
+  <pluginRepository>
+    <id>c5-public-repository</id>
+    <url>http://mvn.carbonfive.com/public</url>
+  </pluginRepository>
+...
+</pluginRepositories>
+}}}
+
 ===Simple Example===
 
-A single enviornment using a MySQL.
+A single environment using a MySQL.
 
 {{{
 <plugin>
