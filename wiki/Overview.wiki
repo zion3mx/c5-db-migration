@@ -3,7 +3,7 @@
 = Documentation =
 
   * [GettingStartedGuide Getting Started Guide]
-  * [MavenGuide Maven Documentation]
+  * [MavenPlugin Maven Plugin Documentation]
   * [DevelopersGuide Developers Guide]
   * [ChangeLog Change Log]
 
