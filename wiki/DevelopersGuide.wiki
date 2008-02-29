@@ -1,21 +1,7 @@
 There are several key high-level classes in the migration framework:
 
-*Migration*
-
-Represents a single migration patch tied to a migration sequence.  Currently only SQL migrations are supported, but initial support for Groovy and Ruby migrations exists in the code base.
-
-*!MigrationResolver*
-
-Finds available migrations from the filesystem or classpath.  The default implementation - `ResourceMigrationResolver` - loads migrations using the classpath url "classpath:/db/migrations/*.sql".
-
-*!MigrationManager* 
-
-Orchestrates the the migration process by determining the current version, latest version, and running the appropriate migrations.
-
-*!VersionStrategy*
-
-Defines a strategy for capturing the current database version.  The default implementation - `SimpleVersionStrategy` - creates a database table called 'schema_version' with a single column 'version'.
-
-*!VersionExtractor*
-
-Given a filename, this extracts the migration's sequence number (i.e. version).
+||Migration||Represents a single migration patch tied to a migration sequence.  Currently only SQL migrations are supported, but initial support for Groovy and Ruby migrations exists in the code base.||
+||!MigrationResolver||Finds available migrations from the filesystem or classpath.  The default implementation - `ResourceMigrationResolver` - loads migrations using the classpath url `classpath:/db/migrations/*.sql`.||
+||!MigrationManager||Orchestrates the the migration process by determining the current version, latest version, and running the appropriate migrations.||
+||!VersionStrategy||Defines a strategy for capturing the current database version.  The default implementation - `SimpleVersionStrategy` - creates a database table called 'schema_version' with a single column 'version'.||
+||!VersionExtractor||Given a filename, this extracts the migration's sequence number (i.e. version).||
