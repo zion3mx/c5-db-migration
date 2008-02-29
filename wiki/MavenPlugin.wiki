@@ -8,14 +8,49 @@ The maven plugin has two goals:
 ==Configuration==
 
 || *Option* || *Description* || *Required* || *Default* ||
-|| defaultEnvironment || ... || No || the first environment ||
+|| defaultEnvironment || ... || No || default environment upon which all other environments are based ||
 || environments || Collection of one or more environments || Yes || N/A ||
 || environment/name || ... || Yes || N/A ||
-|| environment/driverClass || ... || Yes || N/A ||
-|| environment/username|| ... || Yes || N/A ||
-|| environment/password|| ... || Yes || N/A ||
+|| environment/driverClass || JDBC driver class name (fully-qualified) || No || Value set in default environment ||
+|| environment/username|| Database username || Yes || Value set in default environment ||
+|| environment/password|| Database password || Yes || Value set in default environment ||
+
+The examples below will help make these configuration options more clear.
 
 ==Examples==
+
+===Simple Example===
+
+A single enviornment using a MySQL.
+
+{{{
+<plugin>
+    <groupId>com.carbonfive</groupId>
+    <artifactId>maven-migration-plugin</artifactId>
+    <version>0.9-SNAPSHOT</version>
+    <configuration>
+        <environments>
+            <environment>
+                <name>test</name>
+                <driverClass>com.mysql.jdbc.Driver</driverClass>
+                <username>dev</username>
+                <password>dev</password>
+            </environment>
+        </environments>
+    </configuration>
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.5</version>
+        </dependency>
+    </dependencies>
+</plugin>
+}}}
+
+===Example===
+
+Multiple environments, including a default, using a MySQL.
 
 {{{
 <plugin>
