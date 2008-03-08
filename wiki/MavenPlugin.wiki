@@ -48,7 +48,7 @@ A single environment using a MySQL database.
         <environments>
             <environment>
                 <name>test</name>
-                <driver>com.mysql.jdbc.Driver</driver>
+                <!-- <driver>com.mysql.jdbc.Driver</driver> Autodetected -->
                 <url>jdbc:mysql://localhost/myapp_test</url>
                 <username>dev</username>
                 <password>dev</password>
@@ -79,7 +79,7 @@ Multiple environments, including a default, using a MySQL.
         <environments>
             <environment>
                 <name>default</name>
-                <driver>com.mysql.jdbc.Driver</driver>
+                <!-- <driver>com.mysql.jdbc.Driver</driver> Autodetected -->
                 <username>dev</username>
                 <password>dev</password>
             </environment>
