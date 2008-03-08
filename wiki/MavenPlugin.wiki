@@ -11,7 +11,8 @@ The maven plugin has two goals:
 || defaultEnvironment || ... || No || default environment upon which all other environments are based ||
 || environments || Collection of one or more environments || Yes || N/A ||
 || environment/name || ... || Yes || N/A ||
-|| environment/driver || JDBC driver class name (fully-qualified) || No || Value set in default environment ||
+|| environment/driver || JDBC driver class name (fully-qualified) || No (autodetected) || Value set in default environment ||
+|| environment/url|| JDBC connection url || Yes || Value set in default environment ||
 || environment/username|| Database username || Yes || Value set in default environment ||
 || environment/password|| Database password || Yes || Value set in default environment ||
 
