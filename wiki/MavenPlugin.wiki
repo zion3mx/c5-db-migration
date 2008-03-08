@@ -11,7 +11,7 @@ The maven plugin has two goals:
 || defaultEnvironment || ... || No || default environment upon which all other environments are based ||
 || environments || Collection of one or more environments || Yes || N/A ||
 || environment/name || ... || Yes || N/A ||
-|| environment/driverClass || JDBC driver class name (fully-qualified) || No || Value set in default environment ||
+|| environment/driver || JDBC driver class name (fully-qualified) || No || Value set in default environment ||
 || environment/username|| Database username || Yes || Value set in default environment ||
 || environment/password|| Database password || Yes || Value set in default environment ||
 
@@ -35,7 +35,7 @@ Before using the maven db migration plugin you'll need to add the following plug
 
 ===Simple Example===
 
-A single environment using a MySQL.
+A single environment using a MySQL database.
 
 {{{
 <plugin>
@@ -43,10 +43,12 @@ A single environment using a MySQL.
     <artifactId>maven-migration-plugin</artifactId>
     <version>0.9-SNAPSHOT</version>
     <configuration>
+        <defaultEnvironment>test</defaultEnvironment>
         <environments>
             <environment>
                 <name>test</name>
-                <driverClass>com.mysql.jdbc.Driver</driverClass>
+                <driver>com.mysql.jdbc.Driver</driver>
+                <url>jdbc:mysql://localhost/myapp_test</url>
                 <username>dev</username>
                 <password>dev</password>
             </environment>
@@ -76,17 +78,17 @@ Multiple environments, including a default, using a MySQL.
         <environments>
             <environment>
                 <name>default</name>
-                <driverClass>com.mysql.jdbc.Driver</driverClass>
+                <driver>com.mysql.jdbc.Driver</driver>
                 <username>dev</username>
                 <password>dev</password>
             </environment>
             <environment>
                 <name>test</name>
-                <jdbcURL>jdbc:mysql://localhost/adventure_planner_test</jdbcURL>
+                <url>jdbc:mysql://localhost/adventure_planner_test</url>
             </environment>
             <environment>
                 <name>development</name>
-                <jdbcURL>jdbc:mysql://localhost/adventure_planner_development</jdbcURL>
+                <url>jdbc:mysql://localhost/adventure_planner_development</url>
             </environment>
         </environments>
     </configuration>
