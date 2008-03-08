@@ -30,17 +30,17 @@ And then you configure the migration plugin:
     <environments>
       <environment>
         <name>default</name>
-        <driverClass>com.mysql.jdbc.Driver</driverClass>
+        <driver>com.mysql.jdbc.Driver</driver>
         <username>dev</username>
         <password>dev</password>
       </environment>
       <environment>
         <name>test</name>
-        <jdbcURL>jdbc:mysql://localhost/myapp_test</jdbcURL>
+        <url>jdbc:mysql://localhost/myapp_test</url>
       </environment>
       <environment>
         <name>development</name>
-        <jdbcURL>jdbc:mysql://localhost/myapp_development</jdbcURL>
+        <url>jdbc:mysql://localhost/myapp_development</url>
       </environment>
     </environments>
   </configuration>
