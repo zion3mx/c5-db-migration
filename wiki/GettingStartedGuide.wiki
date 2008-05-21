@@ -24,7 +24,7 @@ And then you configure the migration plugin:
 <plugin>
   <groupId>com.carbonfive</groupId>
   <artifactId>maven-migration-plugin</artifactId>
-  <version>0.9-SNAPSHOT</version>
+  <version>0.9</version>
   <configuration>
     <defaultEnvironment>test</defaultEnvironment>
     <environments>
