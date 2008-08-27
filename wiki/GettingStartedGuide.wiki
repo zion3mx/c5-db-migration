@@ -23,32 +23,18 @@ And then you configure the migration plugin:
 {{{
 <plugin>
   <groupId>com.carbonfive</groupId>
-  <artifactId>maven-migration-plugin</artifactId>
-  <version>0.9</version>
+  <artifactId>db-migration-maven-plugin</artifactId>
+  <version>0.9.1</version>
   <configuration>
-    <defaultEnvironment>test</defaultEnvironment>
-    <environments>
-      <environment>
-        <name>default</name>
-        <driver>com.mysql.jdbc.Driver</driver>
-        <username>dev</username>
-        <password>dev</password>
-      </environment>
-      <environment>
-        <name>test</name>
-        <url>jdbc:mysql://localhost/myapp_test</url>
-      </environment>
-      <environment>
-        <name>development</name>
-        <url>jdbc:mysql://localhost/myapp_development</url>
-      </environment>
-    </environments>
+    <url></url>
+    <username></username>
+    <password></password>
   </configuration>
   <dependencies>
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.5</version>
+      <version>5.1.6</version>
     </dependency>
   </dependencies>
 </plugin>
