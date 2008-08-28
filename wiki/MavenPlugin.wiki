@@ -1,11 +1,22 @@
 ==Goals==
 
-The maven plugin has two goals:
+The maven plugin has several goals:
 
-  * migrate:migrate - attempts to migrate the database to the latest version.
-  * migrate:validate - checks to see if the database is up to date.
+  * migration:create - creates the database
+  * migration:drop - drops the database
+  * migration:validate - checks if there are any pending migrations
+  * migration:migrate - applies all pending migrations to the database
+  * migration:reset - drops the database, creates a new one, applies all pending migrations
 
 ==Configuration==
+
+|| *Option* || *Description* || *Required* || *Default* ||
+|| driver || JDBC driver class name (fully-qualified) || No || Autodetected from JDBC connection URL ||
+|| url|| JDBC connection URL || Yes || Value set in default environment ||
+|| username|| Database username || Yes || Value set in default environment ||
+|| password|| Database password || Yes || Value set in default environment ||
+
+==Configuration (old)==
 
 || *Option* || *Description* || *Required* || *Default* ||
 || defaultEnvironment || ... || No || default environment upon which all other environments are based ||
