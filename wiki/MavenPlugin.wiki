@@ -14,23 +14,28 @@ This functionality is easy to enable in a mavenized project. First you add the C
 And then you configure the migration plugin:
 
 {{{
-<plugin>
-  <groupId>com.carbonfive</groupId>
-  <artifactId>maven-db-migration-plugin</artifactId>
-  <version>RELEASE</version>
-  <configuration>
-    <url>jdbc:mysql://localhost/myapp_test</url>
-    <username>dev</username>
-    <password>dev</password>
-  </configuration>
-  <dependencies>
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.6</version>
-    </dependency>
-  </dependencies>
-</plugin>
+...
+<build>
+   ...
+  <plugin>
+    <groupId>com.carbonfive</groupId>
+    <artifactId>maven-db-migration-plugin</artifactId>
+    <version>RELEASE</version>
+    <configuration>
+      <url>jdbc:mysql://localhost/myapp_test</url>
+      <username>dev</username>
+      <password>dev</password>
+    </configuration>
+    <dependencies>
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>5.1.6</version>
+      </dependency>
+    </dependencies>
+  </plugin>
+</build>
+...
 }}}
 
 We've hard-coded values for url, username, and password for the sake of example.  These would most likely be properties that can be overridden for numerous environments (dev, staging, production) via maven profiles (see below).
