@@ -64,95 +64,31 @@ Iâ€™ve created a simple, complete sample that shows off this functionality, itâ€
 
 The maven plugin has several goals:
 
-|| *Goal* || *Description* ||
-||db-migration:create||Create a new, empty database||
+|| *Goal* || *Description* || *Notes* ||
+||db-migration:create||Create a new, empty database.||1||
 ||db-migration:validate||Check to see if the database is up-to-date and report pending migrations||
-||db-migration:migrate||Apply all pending migrations||
-||db-migration:drop||Drop the database||
-||db-migration:reset||Drop the existing database, create a new one, and apply all pending migrations||
+||db-migration:migrate||Apply all pending migrations||2||
+||db-migration:drop||Drop the database||1||
+||db-migration:reset||Drop the existing database, create a new one, and apply all pending migrations||1||
+
+Notes:
+  # Must have create and drop database privileges.
+  # Must have schema update privileges.
 
 ==Configuration==
 
 || *Option* || *Description* || *Required* || *Default* ||
 || driver || JDBC driver class name (fully-qualified) || No || Autodetected from JDBC connection URL ||
-|| url|| JDBC connection URL || Yes || Value set in default environment ||
-|| username|| Database username || Yes || Value set in default environment ||
-|| password|| Database password || Yes || Value set in default environment ||
-
+|| url|| JDBC connection URL || Yes || N/A ||
+|| username|| Database username || Yes || N/A ||
+|| password|| Database password || No || "" - empty string ||
+|| || || || ||
+|| migrationsPath || Location of migrations || NO || src/main/db/migrations/*.sql ||
+|| versionTable || Name of version tracking table|| NO || schema_version ||
+|| versionColumn || Name of version column || NO || version ||
+|| appliedDate|| Name of applied-date column || NO || applied_on ||
+|| durationColumn || Name of duration column || NO || duration ||
+|| createSql || SQL to execute to create the database || NO || "create database %s" ||
+|| dropSql || SQL to execute to drop the database || NO || "drop database %s" ||
 
 The examples below will help make these configuration options more clear.
-
-==Examples==
-
-===Plugin Repository===
-
-Before using the maven db migration plugin you'll need to add the following plugin repository:
-
-{{{
-<pluginRepositories>
-  <pluginRepository>
-    <id>c5-public-repository</id>
-    <url>http://mvn.carbonfive.com/public</url>
-  </pluginRepository>
-...
-</pluginRepositories>
-}}}
-
-===Simple Example===
-
-A single environment using a MySQL database.
-
-{{{
-<plugin>
-    <groupId>com.carbonfive</groupId>
-    <artifactId>maven-migration-plugin</artifactId>
-    <version>RELEASE</version>
-    <configuration>
-    </configuration>
-    <dependencies>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.6</version>
-        </dependency>
-    </dependencies>
-</plugin>
-}}}
-
-===Example===
-
-Multiple environments, including a default, using a MySQL.
-
-{{{
-<plugin>
-    <groupId>com.carbonfive</groupId>
-    <artifactId>maven-migration-plugin</artifactId>
-    <version>0.9-SNAPSHOT</version>
-    <configuration>
-        <defaultEnvironment>test</defaultEnvironment>
-        <environments>
-            <environment>
-                <name>default</name>
-                <!-- <driver>com.mysql.jdbc.Driver</driver> Autodetected -->
-                <username>dev</username>
-                <password>dev</password>
-            </environment>
-            <environment>
-                <name>test</name>
-                <url>jdbc:mysql://localhost/adventure_planner_test</url>
-            </environment>
-            <environment>
-                <name>development</name>
-                <url>jdbc:mysql://localhost/adventure_planner_development</url>
-            </environment>
-        </environments>
-    </configuration>
-    <dependencies>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.5</version>
-        </dependency>
-    </dependencies>
-</plugin>
-}}}
