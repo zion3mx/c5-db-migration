@@ -64,11 +64,12 @@ Iâ€™ve created a simple, complete sample that shows off this functionality, itâ€
 
 The maven plugin has several goals:
 
-  * migration:create - creates the database
-  * migration:drop - drops the database
-  * migration:validate - checks if there are any pending migrations
-  * migration:migrate - applies all pending migrations to the database
-  * migration:reset - drops the database, creates a new one, applies all pending migrations
+|| *Goal* || *Description* ||
+||db-migration:create||Create a new, empty database||
+||db-migration:validate||Check to see if the database is up-to-date and report pending migrations||
+||db-migration:migrate||Apply all pending migrations||
+||db-migration:drop||Drop the database||
+||db-migration:reset||Drop the existing database, create a new one, and apply all pending migrations||
 
 ==Configuration==
 
@@ -78,16 +79,6 @@ The maven plugin has several goals:
 || username|| Database username || Yes || Value set in default environment ||
 || password|| Database password || Yes || Value set in default environment ||
 
-==Configuration (old)==
-
-|| *Option* || *Description* || *Required* || *Default* ||
-|| defaultEnvironment || ... || No || default environment upon which all other environments are based ||
-|| environments || Collection of one or more environments || Yes || N/A ||
-|| environment/name || ... || Yes || N/A ||
-|| environment/driver || JDBC driver class name (fully-qualified) || No || Autodetected from JDBC connection URL ||
-|| environment/url|| JDBC connection URL || Yes || Value set in default environment ||
-|| environment/username|| Database username || Yes || Value set in default environment ||
-|| environment/password|| Database password || Yes || Value set in default environment ||
 
 The examples below will help make these configuration options more clear.
 
@@ -115,24 +106,14 @@ A single environment using a MySQL database.
 <plugin>
     <groupId>com.carbonfive</groupId>
     <artifactId>maven-migration-plugin</artifactId>
-    <version>0.9-SNAPSHOT</version>
+    <version>RELEASE</version>
     <configuration>
-        <defaultEnvironment>test</defaultEnvironment>
-        <environments>
-            <environment>
-                <name>test</name>
-                <!-- <driver>com.mysql.jdbc.Driver</driver> Autodetected -->
-                <url>jdbc:mysql://localhost/myapp_test</url>
-                <username>dev</username>
-                <password>dev</password>
-            </environment>
-        </environments>
     </configuration>
     <dependencies>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.5</version>
+            <version>5.1.6</version>
         </dependency>
     </dependencies>
 </plugin>
