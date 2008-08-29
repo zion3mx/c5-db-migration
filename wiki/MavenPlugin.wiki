@@ -173,3 +173,5 @@ The three placeholders can be resolved to values that come from [http://maven.ap
 }}}
 
 Profiles can be defined in the pom, a parent pom, individual developer's settings.xml, and an external profiles.xml.  This gives you a few options for where best to define a specific profile.  And with resolution mechanism for properties (e.g. ${jdbc.url), you can support just about anything you might need.
+
+Profiles can be manually activated using the `mvn -Pdevelopment <goal>` syntax.  They can also be activated automatically when certain criteria are met.
