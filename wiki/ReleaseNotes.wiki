@@ -4,17 +4,27 @@ A number of changes were made that break backwards compatibility.  We try to kee
 
 *New Features and Improvements*
 
-  * Removed explicit support for "environments" as maven profiles provide a more flexible and robust solution.
-  * Version history table schema has changed and now all applied migrations are captured (not just the last version).
+  * _Removed explicit support for "environments" as maven profiles provide a more flexible and robust solution._
+  * _Version history table schema has changed and now all applied migrations are captured (not just the last version)._
   * Timestamps are now the recommended version string (instead of 001, 002, etc).
   * Migrations don't necessarily have to run in strict order; all pending migrations are run in order however.  This in conjunction with timestamp versions prevent developers from stepping on each others migrations.
-  * Renamed artifacts ids:
+  * _Renamed artifact ids:_
     * maven-migration-plugin -> maven-db-migration-pluging
     * migration -> db-migration
     * db-support -> db-support-parent
-  * Lots of shifting code around between modules and packages.
+  * _Lots of shifting code around between modules and packages._
   * Added db-migration:create, drop, and reset for MySQL and PostreSQL.
   * Enhanced db-migration:validate to display pending migrations.
+
+_Italicized_ changes are not backwards compatible.
+
+*Upgrading*
+
+  # Update the artifactIds and maven-db-migration-plugin configuration.
+  # Move your migrations to the new default location (src/main/db/migrations).
+  # Update your migrations and version history, by (choose one):
+    * Rename existing migrations to use the timestamp format, drop your database, and then migrate.  Of course this is impossible in production.
+    * Manually change the schema_version table to match "create table version_schema (version varchar(32) not null unique, applied_on timestamp not null, duration int not null)" and add a row for each already applied migration.  You can also rename the migrations as part of this process.
 
 ==0.9.0 and older==
 
