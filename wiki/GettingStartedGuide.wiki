@@ -7,67 +7,6 @@ These scenarios are described in turn below:
 
 ==Migrating using Maven==
 
-This functionality is easy to enable in a mavenized project. First you add the Carbon Five public plugin repository:
-
-{{{
-<pluginRepositories>
-  <pluginRepository>
-    <id>c5-public-repository</id>
-    <url>http://mvn.carbonfive.com/public</url>
-  </pluginRepository>
-</pluginRepositories>
-}}}
-
-And then you configure the migration plugin:
-
-{{{
-<plugin>
-  <groupId>com.carbonfive</groupId>
-  <artifactId>db-migration-maven-plugin</artifactId>
-  <version>RELEASE</version>
-  <configuration>
-    <url>jdbc:mysql://dev-db/some-database</url>
-    <username>dev</username>
-    <password>dev</password>
-  </configuration>
-  <dependencies>
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.6</version>
-    </dependency>
-  </dependencies>
-</plugin>
-}}}
-
-We've hard-coded values for url, username, and password for the sake of example.  These would most likely be properties that can be overridden for numerous environments (dev, staging, production) via maven profiles.
-
-The plugin doesn't have dependencies on any specific JDBC drivers, so you'll have to include the dependencies which include your specific driver.
-
-Lastly, you drop in your migration scripts into the src/main/db/migrations directory, naming them using the pattern YYYYMMDDHHMMSS_description.sql, where YYYYMMDDHHMMSS is a fourteen digit timestamp. Some examples might be:
-
-    * 20080115200312_create_users_table.sql
-    * 20080518092345_add_default_users.sql
-    * 20080718214051_add_lastvisit_column.sql
-
-The description is optional and isn’t used for anything, it’s just there so that other developers can get an idea of what a script does without having to open it.
-
-From the command line, you can run the migration plugin like this:
-
-{{{
-$ mvn migration:migrate
-}}}
-
-If you want the plugin to also create the database, you can invoke the plugin like this:
-
-{{{
-$ mvn migration:create migration:migrate
-}}}
-
-I’ve created a simple, complete sample that shows off this functionality, it’s located on the Carbon Five public subversion repository [http://svn.carbonfive.com/public/christian/migration-sample1/trunk here]. Check it out and then read the readme.txt at the top of the project.
-
-For more information about the maven plugin, check out the [MavenPlugin maven plugin] docs.
-
 ==Migrating from your Application==
 
 The other usage scenario is to auto-migrate during application startup. At the core of the framework, there’s an interface called !MigrationManager which has two implementations: !DataSourceMigrationManager and !DriverManagerMigrationManager. Migration happens right after a datasource (of the javax.sql variety) is created.
