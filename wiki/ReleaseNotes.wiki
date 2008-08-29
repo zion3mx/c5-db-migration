@@ -18,7 +18,7 @@ A number of changes were made that break backwards compatibility.  We try to kee
 
 *Bugfixes*
 
-  * ScriptRunner failed when displaying update results (thanks Doug!)
+  * !ScriptRunner failed when displaying update results (thanks Doug!)
 
 *Upgrading*
 
