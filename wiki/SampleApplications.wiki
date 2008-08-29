@@ -15,9 +15,3 @@ Source: http://svn.carbonfive.com/public/christian/migration-sample1/trunk/
 This very simple spring-application configures the migration framework to run against a spring-configured !DataSource before anything else in the system uses it.
 
 Source: http://svn.carbonfive.com/public/christian/migration-sample2/trunk/
-
-----
-
-*Supporting Multiple Environments (test, dev, staging, and production)*
-
-TBD
