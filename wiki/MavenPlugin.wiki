@@ -49,16 +49,22 @@ The description is optional and isn’t used for anything, it’s just there so 
 From the command line, you can run the migration plugin like this:
 
 {{{
-$ mvn migration:migrate
+$ mvn db-migration:migrate
 }}}
 
 If you want the plugin to also create the database, you can invoke the plugin like this:
 
 {{{
-$ mvn migration:create migration:migrate
+$ mvn db-migration:create migration:migrate
 }}}
 
-I’ve created a simple, complete sample that shows off this functionality, it’s located on the Carbon Five public subversion repository [http://svn.carbonfive.com/public/christian/migration-sample1/trunk here]. Check it out from subvserion and then read the readme.txt at the top of the project.
+Sometimes you want to blow away the database and start fresh:
+
+{{{
+$ mvn db-migration:reset
+}}}
+
+I’ve created a simple, complete sample that shows off this functionality, it’s located on the Carbon Five public subversion repository [http://svn.carbonfive.com/public/christian/migration-sample1/trunk here]. Check it out from subvesrion and then read the readme.txt at the top of the project.
 
 ==Goal Reference==
 
