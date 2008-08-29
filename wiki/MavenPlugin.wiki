@@ -64,7 +64,7 @@ Sometimes you want to blow away the database and start fresh:
 $ mvn db-migration:reset
 }}}
 
-I’ve created a simple, complete sample that shows off this functionality, it’s located on the Carbon Five public subversion repository [http://svn.carbonfive.com/public/christian/migration-sample1/trunk here]. Check it out from subvesrion and then read the readme.txt at the top of the project.
+I’ve created a simple, complete sample that shows off this functionality, it’s located on the Carbon Five public subversion repository [http://svn.carbonfive.com/public/christian/migration-sample1/trunk here]. Check it out from subversion and then read the readme.txt at the top of the project.
 
 ==Goal Reference==
 
