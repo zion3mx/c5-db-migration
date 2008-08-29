@@ -64,12 +64,12 @@ Iâ€™ve created a simple, complete sample that shows off this functionality, itâ€
 
 The maven plugin has several goals:
 
-|| *Goal* || *Description* || *Notes* ||
-||db-migration:create||Create a new, empty database.||1||
+|| *Goal* || *Description* ||
+||db-migration:create||Create a new, empty database.^1^||
 ||db-migration:validate||Check to see if the database is up-to-date and report pending migrations||
-||db-migration:migrate||Apply all pending migrations||2||
-||db-migration:drop||Drop the database||1||
-||db-migration:reset||Drop the existing database, create a new one, and apply all pending migrations||1||
+||db-migration:migrate||Apply all pending migrations^2^||
+||db-migration:drop||Drop the database^1^||
+||db-migration:reset||Drop the existing database, create a new one, and apply all pending migrations^1^||
 
 Notes:
   # Must have create and drop database privileges.
