@@ -2,7 +2,7 @@
 
 A number of changes were made that break backwards compatibility.  We try to keep things stable but had to make a few fundamental improvements before deeming this framework worthy of a 1.0 status.  The framework is now stabilizing and we don't expect as many sweeping changes before 1.0.
 
-*New Features and Improvements* (_Italicized_ changes are not backwards compatible)
+===New Features and Improvements (_Italicized_ changes are not backwards compatible)===
 
   * _Removed explicit support for "environments" as maven profiles provide a more flexible and robust solution._
   * _Version history table schema has changed and now all applied migrations are captured (not just the last version)._
@@ -16,11 +16,11 @@ A number of changes were made that break backwards compatibility.  We try to kee
   * Added `db-migration:create, `drop`, and `reset` for MySQL and PostreSQL.
   * Enhanced `db-migration:validate` to display pending migrations.
 
-*Bugfixes*
+===Bugfixes===
 
   * !ScriptRunner failed when displaying update results (thanks Doug!)
 
-*Upgrading*
+===Upgrading===
 
 Here is a high-level strategy for upgrading from previous versions.
 
