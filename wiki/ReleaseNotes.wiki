@@ -16,7 +16,13 @@ A number of changes were made that break backwards compatibility.  We try to kee
   * Added `db-migration:create, `drop`, and `reset` for MySQL and PostreSQL.
   * Enhanced `db-migration:validate` to display pending migrations.
 
+*Bugfixes*
+
+  * ScriptRunner failed when displaying update results (thanks Doug!)
+
 *Upgrading*
+
+Here is a high-level strategy for upgrading from previous versions.
 
   # Update the plugin artifactId to maven-db-migration-plugin.
   # (optional) Update the framework artifactId to db-migration (if you reference it).
