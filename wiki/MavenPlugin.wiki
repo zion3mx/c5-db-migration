@@ -33,7 +33,7 @@ And then you configure the migration plugin:
 </plugin>
 }}}
 
-We've hard-coded values for url, username, and password for the sake of example.  These would most likely be properties that can be overridden for numerous environments (dev, staging, production) via maven profiles.
+We've hard-coded values for url, username, and password for the sake of example.  These would most likely be properties that can be overridden for numerous environments (dev, staging, production) via maven profiles (see below).
 
 The plugin doesn't have dependencies on any specific JDBC drivers, so you'll have to include the dependencies which include your specific driver.
 
@@ -99,3 +99,7 @@ Notes:
 
 Notes:
   # Where %s is the name of the database, as extracted from the JDBC connection URL.
+
+==Handling Multiple Environments (test, development, staging, ...)== 
+
+...
