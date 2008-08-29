@@ -2,7 +2,7 @@
 
 A number of changes were made that break backwards compatibility.  We try to keep things stable but has to make a few fundamental improvements before deeming this framework worthy of a 1.0 status.  We'll try to minimize such changes in the future.
 
-*Incompatibilities*
+*New Features and Improvements*
 
   * Removed explicit support for "environments" as maven profiles provide a more flexible and robust solution.
   * Version history table schema has changed and now all applied migrations are captured (not just the last version).
@@ -12,12 +12,9 @@ A number of changes were made that break backwards compatibility.  We try to kee
     * maven-migration-plugin -> maven-db-migration-pluging
     * migration -> db-migration
     * db-support -> db-support-parent
-  * Lots of shifting code around.
-
-*New Features and Improvements*
-
-  * db-migration:create, drop, and reset for MySQL and PostreSQL
-  * db-migration:validate now displays pending migrations
+  * Lots of shifting code around between modules and packages.
+  * Added db-migration:create, drop, and reset for MySQL and PostreSQL.
+  * Enhanced db-migration:validate to display pending migrations.
 
 ==0.9.0 and older==
 
