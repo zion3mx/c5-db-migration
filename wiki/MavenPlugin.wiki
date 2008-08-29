@@ -66,7 +66,7 @@ $ mvn db-migration:reset
 
 I’ve created a simple, complete sample that shows off this functionality, it’s located on the Carbon Five public subversion repository [http://svn.carbonfive.com/public/christian/migration-sample1/trunk here]. Check it out from subversion and then read the readme.txt at the top of the project.
 
-==Goal Reference==
+==Maven Plugin Goal Reference==
 
 The maven plugin has several goals:
 
@@ -81,7 +81,7 @@ Notes:
   # Must have create and drop database privileges.
   # Must have schema update privileges.
 
-==Configuration==
+==Maven Plugin Configuration==
 
 || *Option* || *Description* || *Required* || *Default* ||
 || driver || JDBC driver class name (fully-qualified) || No || Autodetected from JDBC connection URL ||
@@ -89,12 +89,13 @@ Notes:
 || username|| Database username || Yes || N/A ||
 || password|| Database password || No || "" - empty string ||
 || || || || ||
-|| migrationsPath || Location of migrations || NO || src/main/db/migrations/*.sql ||
-|| versionTable || Name of version tracking table|| NO || schema_version ||
-|| versionColumn || Name of version column || NO || version ||
-|| appliedDate|| Name of applied-date column || NO || applied_on ||
-|| durationColumn || Name of duration column || NO || duration ||
-|| createSql || SQL to execute to create the database || NO || "create database %s" ||
-|| dropSql || SQL to execute to drop the database || NO || "drop database %s" ||
+|| migrationsPath || Location of migrations || NO || "src/main/db/migrations/*.sql" ||
+|| versionTable || Name of version tracking table|| NO || "schema_version" ||
+|| versionColumn || Name of version column || NO || "version" ||
+|| appliedDate|| Name of applied-date column || NO || "applied_on" ||
+|| durationColumn || Name of duration column || NO || "duration" ||
+|| createSql || SQL to execute to create the database || NO || "create database %s"^1^ ||
+|| dropSql || SQL to execute to drop the database || NO || "drop database %s"^1^ ||
 
-The examples below will help make these configuration options more clear.
+Notes:
+  # Where %s is the name of the database, as extracted from the JDBC connection URL.
