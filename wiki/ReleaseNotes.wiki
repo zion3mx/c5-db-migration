@@ -1,31 +1,33 @@
-==0.9.1 released on 2008-08-29==
+==v0.9.1 [2008-08-29]==
 
-A number of changes were made that break backwards compatibility.  We try to keep things stable but has to make a few fundamental improvements before deeming this framework worthy of a 1.0 status.  We'll try to minimize such changes in the future.
+A number of changes were made that break backwards compatibility.  We try to keep things stable but had to make a few fundamental improvements before deeming this framework worthy of a 1.0 status.  The framework is now stabilizing and we don't expect as many sweeping changes before 1.0.
 
-*New Features and Improvements*
+*New Features and Improvements* (_Italicized_ changes are not backwards compatible)
 
   * _Removed explicit support for "environments" as maven profiles provide a more flexible and robust solution._
   * _Version history table schema has changed and now all applied migrations are captured (not just the last version)._
   * Timestamps are now the recommended version string (instead of 001, 002, etc).
   * Migrations don't necessarily have to run in strict order; all pending migrations are run in order however.  This in conjunction with timestamp versions prevent developers from stepping on each others migrations.
   * _Renamed artifact ids:_
-    * maven-migration-plugin -> maven-db-migration-pluging
+    * maven-migration-plugin -> maven-db-migration-plugin
     * migration -> db-migration
     * db-support -> db-support-parent
   * _Lots of shifting code around between modules and packages._
-  * Added db-migration:create, drop, and reset for MySQL and PostreSQL.
-  * Enhanced db-migration:validate to display pending migrations.
-
-_Italicized_ changes are not backwards compatible.
+  * Added `db-migration:create, `drop`, and `reset` for MySQL and PostreSQL.
+  * Enhanced `db-migration:validate` to display pending migrations.
 
 *Upgrading*
 
-  # Update the artifactIds and maven-db-migration-plugin configuration.
-  # Move your migrations to the new default location (src/main/db/migrations).
-  # Update your migrations and version history, by (choose one):
-    * Rename existing migrations to use the timestamp format, drop your database, and then migrate.  Of course this is impossible in production.
-    * Manually change the schema_version table to match "create table version_schema (version varchar(32) not null unique, applied_on timestamp not null, duration int not null)" and add a row for each already applied migration.  You can also rename the migrations as part of this process.
+  # Update the plugin artifactId to maven-db-migration-plugin.
+  # (optional) Update the framework artifactId to db-migration (if you reference it).
+  # The default migration location has changed, *either*:
+    * Move your migrations to the new default location (src/main/db/migrations).  If you embedded the migration manager, you must locate your migrations on the classpath.
+    * Configure their location using `<migrationsPath>file:src/main/resources/db/migrations/*.sql</migrationsPath>`.
+  # (optional) Rename your migrations to use the new timestamp format.
+  # Update your version history, by *either*:
+    * Drop your database, create a new one and then migrate.  Of course this is difficult in production.
+    * Manually change the schema_version table to match a table created by `create table version_schema (version varchar(32) not null unique, applied_on timestamp not null, duration int not null)` and add a row for each already applied migration.
 
-==0.9.0 and older==
+==v0.9.0 and older==
 
 First "releases" of the Carbon Five Database Migration Tools.
