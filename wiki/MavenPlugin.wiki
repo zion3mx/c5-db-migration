@@ -107,4 +107,69 @@ Notes:
 
 ==Handling Multiple Environments (test, development, staging, ...)== 
 
-...
+Consider the following plugin configuration...
+
+{{{
+<build>
+  <plugins>
+    ...
+    <plugin>
+      <groupId>com.carbonfive</groupId>
+      <artifactId>maven-db-migration-plugin</artifactId>
+      <version>RELEASE</version>
+      <configuration>
+        <url>${jdbc.url}</url>
+        <username>${jdbc.username}</username>
+        <password>${jdbc.password}</password>
+      </configuration>
+      ...
+    </plugin>
+  </plugins>
+  ...
+</build>
+}}}
+
+The three placeholders can be resolved to values that come from [http://maven.apache.org/pom.html#Properties a number of locations].  Additionally, they could be defined in one or more [http://maven.apache.org/guides/introduction/introduction-to-profiles.html maven build profiles].  For example:
+
+{{{
+<profiles>
+  <profile>
+    <id>test</id>
+    <activation>
+      <activeByDefault>true</activeByDefault>
+    </activation>
+    <properties>
+      <jdbc.url>jdbc:mysql:/${jdbc.host}/myapp_test</jdbc.url>
+      <jdbc.username>dev</jdbc.username>
+      <jdbc.password>dev</jdbc.password>
+    </properties>
+  </profile>
+  <profile>
+    <id>development</id>
+    <properties>
+      <jdbc.url>jdbc:mysql:/${jdbc.host}/myapp_development</jdbc.url>
+      <jdbc.username>dev</jdbc.username>
+      <jdbc.password>dev</jdbc.password>
+    </properties>
+  </profile>
+  <profile>
+    <id>stagin</id>
+    <properties>
+      <jdbc.url>jdbc:mysql:/${jdbc.host}/myapp_staging</jdbc.url>
+      <jdbc.username>myapp_user</jdbc.username>
+      <jdbc.password>8H6%gj8n</jdbc.password>
+    </properties>
+  </profile>
+  <profile>
+    <!-- This would likely only be present in settings.xml for whoever pushed to production. --> 
+    <id>production</id>
+    <properties>
+      <jdbc.url>jdbc:mysql:/${jdbc.host}/myapp_production</jdbc.url>
+      <jdbc.username>myapp_user</jdbc.username>
+      <jdbc.password>gH7Ga5jw</jdbc.password>
+    </properties>
+  </profile>
+</profiles>
+}}}
+
+Profiles can be defined in the pom, a parent pom, individual developer's settings.xml, and an external profiles.xml.  This gives you a few options for where best to define a specific profile.  And with resolution mechanism for properties (e.g. ${jdbc.url), you can support just about anything you might need.
