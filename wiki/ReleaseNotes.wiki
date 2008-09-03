@@ -24,12 +24,12 @@ A number of changes were made that break backwards compatibility.  We try to kee
 
 Here is a high-level strategy for upgrading from previous versions.
 
-  # Update the plugin artifactId to maven-db-migration-plugin.
-  # (optional) Update the framework artifactId to db-migration (if you reference it).
+  # _*(maven plugin)*_ Update the plugin artifactId to maven-db-migration-plugin.
+  # _*(maven plugin)*_ Update the framework artifactId to db-migration (if you reference it).
   # The default migration location has changed, *either*:
     * Move your migrations to the new default location (src/main/db/migrations).  If you embedded the migration manager, you must locate your migrations on the classpath.
     * Configure their location using `<migrationsPath>file:src/main/resources/db/migrations/*.sql</migrationsPath>`.
-  # (optional) Rename your migrations to use the new timestamp format.
+  # _*(optional)*_ Rename your migrations to use the new timestamp format.
   # Update your version history, by *either*:
     * Drop your database, create a new one and then migrate.  Of course this is difficult in production.
     * Manually change the schema_version table to match a table created by `create table version_schema (version varchar(32) not null unique, applied_on timestamp not null, duration int not null)` and add a row for each already applied migration.
