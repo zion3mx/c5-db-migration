@@ -131,9 +131,17 @@ Consider the following plugin configuration...
 </build>
 }}}
 
-The three placeholders can be resolved to values that come from [http://maven.apache.org/pom.html#Properties a number of locations].  Additionally, they could be defined in one or more [http://maven.apache.org/guides/introduction/introduction-to-profiles.html maven build profiles].  For example:
+The three placeholders can be resolved to values that come from [http://maven.apache.org/pom.html#Properties a number of locations].  Additionally, they could be defined in one or more [http://maven.apache.org/guides/introduction/introduction-to-profiles.html maven build profiles].  Sometimes our developers share a common database server and in other cases (when possible) we run the database on our development machines.  I'll tackle each in turn:
+
+===Local Database (localhost)===
 
 {{{
+...
+<properties>
+  <!-- Default to localhost but allow for simple overriding. -->
+  <jdbc.host>localhost</jdbc.host>
+</properties>
+...
 <profiles>
   <profile>
     <id>test</id>
@@ -141,7 +149,7 @@ The three placeholders can be resolved to values that come from [http://maven.ap
       <activeByDefault>true</activeByDefault>
     </activation>
     <properties>
-      <jdbc.url>jdbc:mysql:/${jdbc.host}/${env.username}_myapp_test</jdbc.url>
+      <jdbc.url>jdbc:mysql://${jdbc.host}/myapp_test</jdbc.url>
       <jdbc.username>dev</jdbc.username>
       <jdbc.password>dev</jdbc.password>
     </properties>
@@ -149,15 +157,58 @@ The three placeholders can be resolved to values that come from [http://maven.ap
   <profile>
     <id>development</id>
     <properties>
-      <jdbc.url>jdbc:mysql:/${jdbc.host}/${env.username}_myapp_development</jdbc.url>
+      <jdbc.url>jdbc:mysql://${jdbc.host}/myapp_development</jdbc.url>
+      <jdbc.username>dev</jdbc.username>
+      <jdbc.password>dev</jdbc.password>
+    </properties>
+  </profile>
+</profiles>
+...
+}}}
+
+===Shared Development Database Server===
+
+{{{
+...
+<properties>
+  <!-- Default to staging but allow for simple overriding. -->
+  <jdbc.host>staging-db</jdbc.host>
+</properties>
+...
+<profiles>
+  <profile>
+    <id>test</id>
+    <activation>
+      <activeByDefault>true</activeByDefault>
+    </activation>
+    <properties>
+      <jdbc.url>jdbc:mysql://${jdbc.host}/${env.USERNAME}_myapp_test</jdbc.url>
       <jdbc.username>dev</jdbc.username>
       <jdbc.password>dev</jdbc.password>
     </properties>
   </profile>
   <profile>
+    <id>development</id>
+    <properties>
+      <jdbc.url>jdbc:mysql://${jdbc.host}/${env.USERNAME}_myapp_development</jdbc.url>
+      <jdbc.username>dev</jdbc.username>
+      <jdbc.password>dev</jdbc.password>
+    </properties>
+  </profile>
+</profiles>
+...
+}}}
+
+Note that `jdbc.username` and `jdbc.password` could be defined in each developer's settings.xml if greater security was desired.
+
+===Staging and Production===
+
+{{{
+...
+  <profile>
     <id>staging</id>
     <properties>
-      <jdbc.url>jdbc:mysql:/${jdbc.host}/myapp_staging</jdbc.url>
+      <jdbc.url>jdbc:mysql://192.168.2.122/myapp_staging</jdbc.url>
       <jdbc.username>myapp_user</jdbc.username>
       <jdbc.password>8H6%gj8n</jdbc.password>
     </properties>
@@ -166,13 +217,15 @@ The three placeholders can be resolved to values that come from [http://maven.ap
     <!-- This would likely only be present in settings.xml for whoever pushed to production. --> 
     <id>production</id>
     <properties>
-      <jdbc.url>jdbc:mysql:/${jdbc.host}/myapp_production</jdbc.url>
+      <jdbc.url>jdbc:mysql://10.4.5.341/myapp_production</jdbc.url>
       <jdbc.username>myapp_user</jdbc.username>
       <jdbc.password>gH7Ga5jw</jdbc.password>
     </properties>
   </profile>
-</profiles>
+...
 }}}
+
+===Profile Location and Activation===
 
 Profiles can be defined in the pom, a parent pom, individual developer's settings.xml, and an external profiles.xml.  This gives you a few options for where best to define a specific profile.  And with resolution mechanism for properties (e.g. ${jdbc.url), you can support just about anything you might need.
 
