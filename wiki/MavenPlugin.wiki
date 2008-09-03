@@ -141,7 +141,7 @@ The three placeholders can be resolved to values that come from [http://maven.ap
       <activeByDefault>true</activeByDefault>
     </activation>
     <properties>
-      <jdbc.url>jdbc:mysql:/${jdbc.host}/myapp_test</jdbc.url>
+      <jdbc.url>jdbc:mysql:/${jdbc.host}/${env.username}_myapp_test</jdbc.url>
       <jdbc.username>dev</jdbc.username>
       <jdbc.password>dev</jdbc.password>
     </properties>
@@ -149,13 +149,13 @@ The three placeholders can be resolved to values that come from [http://maven.ap
   <profile>
     <id>development</id>
     <properties>
-      <jdbc.url>jdbc:mysql:/${jdbc.host}/myapp_development</jdbc.url>
+      <jdbc.url>jdbc:mysql:/${jdbc.host}/${env.username}_myapp_development</jdbc.url>
       <jdbc.username>dev</jdbc.username>
       <jdbc.password>dev</jdbc.password>
     </properties>
   </profile>
   <profile>
-    <id>stagin</id>
+    <id>staging</id>
     <properties>
       <jdbc.url>jdbc:mysql:/${jdbc.host}/myapp_staging</jdbc.url>
       <jdbc.username>myapp_user</jdbc.username>
