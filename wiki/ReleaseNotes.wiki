@@ -1,7 +1,8 @@
-==v0.9.2 [\TBD]==
+==v0.9.2 - NOT YET RELEASED==
 
   * MS SQL Server is now supported (tested against SQL Server 2000)
   * Migrations can be written in [http://groovy.codehaus.org/ Groovy] (use the same naming with the extension .groovy) and use the jdbc connection that's made available to the script by the name `connection`
+  * ...
 
 ==v0.9.1 [2008-08-29]==
 
