@@ -21,7 +21,7 @@ A number of changes were made that break backwards compatibility.  We try to kee
     * migration -> db-migration
     * db-support -> db-support-parent
   * _Lots of shifting code around between modules and packages._
-  * Added `db-migration:create`, `drop`, and `reset` for MySQL and PostreSQL.
+  * Added `db-migration:create`, `drop`, and `reset` for MySQL and PostgreSQL.
   * Enhanced `db-migration:validate` to display pending migrations.
 
 ===Bugfixes===
