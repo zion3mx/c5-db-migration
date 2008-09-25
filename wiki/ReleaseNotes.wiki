@@ -1,7 +1,7 @@
 ==v0.9.3 - NOT YET RELEASED==
   * !ScriptRunner improvements for MySQL (functions, stored procs, and comments)
 
-==v0.9.2 - NOT YET RELEASED==
+==v0.9.2 [2008-09-25]==
 
   * MS SQL Server is now supported (tested against SQL Server 2000)
   * Migrations can be written in [http://groovy.codehaus.org/ Groovy] (use the same naming with the extension .groovy) and use the jdbc connection that's made available to the script by the name `connection`
