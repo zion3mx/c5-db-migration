@@ -75,6 +75,12 @@ You can also just check to see if the database is up-to-date:
 $ mvn db-migration:validate
 }}}
 
+When it's time to create a new migration script, you can do so by:
+{{{
+$ mvn db-migration:new -Dcomment=users_and_roles
+}}}
+Which results in a new, empty file called: src/main/db/migrations/yyyyMMddHHmmss_users_and_roles.sql (assuming default settings).
+
 I’ve created a simple, complete sample that shows off this functionality, it’s located on the Carbon Five public subversion repository [http://svn.carbonfive.com/public/christian/migration-sample1/trunk here]. Check it out from subversion and then read the readme.txt at the top of the project.
 
 ==Maven Plugin Goal Reference==
@@ -82,6 +88,7 @@ I’ve created a simple, complete sample that shows off this functionality, it�
 The maven plugin has several goals:
 
 || *Goal* || *Description* ||
+||db-migration:new||Create a new, empty migration file||
 ||db-migration:create||Create a new, empty database^1^||
 ||db-migration:validate||Check to see if the database is up-to-date and report pending migrations||
 ||db-migration:migrate||Apply all pending migrations^2^||
@@ -100,7 +107,9 @@ Notes:
 || username|| Database username || Yes || N/A ||
 || password|| Database password || No || "" - empty string ||
 || || || || ||
-|| migrationsPath || Location of migrations || NO || "src/main/db/migrations/*.sql" ||
+|| migrationsPath || Location of migrations || NO || "src/main/db/migrations/*" ||
+|| versionPattern || Date format for new migration filenames || NO || "yyyMMddHHmmss" ||
+|| migrationExtension || Filename extension for new migrations || NO || ".sql" ||
 || versionTable || Name of version tracking table|| NO || "schema_version" ||
 || versionColumn || Name of version column || NO || "version" ||
 || appliedDate|| Name of applied-date column || NO || "applied_on" ||
