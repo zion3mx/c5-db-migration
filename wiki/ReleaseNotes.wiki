@@ -1,5 +1,7 @@
 ==v0.9.3 - NOT YET RELEASED==
   * !ScriptRunner improvements for MySQL (functions, stored procs, and comments)
+  * Added db-migration:new goal for creating new migrations scripts
+  * Bugs fixed: [http://code.google.com/p/c5-db-migration/issues/detail?id=5 5]
 
 ==v0.9.2 [2008-09-25]==
 
