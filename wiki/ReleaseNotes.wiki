@@ -4,6 +4,7 @@
 ==v0.9.3 - NOT YET RELEASED==
   * Added db-migration:new goal for creating new migrations scripts (-Dname=... to specify a script name)
   * Added support for HSQL database
+  * migrationsPath no longer needs the wildcard at the end (e.g. "/src/main/db/migrations/*" should become "/src/main/db/migrations/")
   * Bugs fixed: [http://code.google.com/p/c5-db-migration/issues/detail?id=5 5]
   * Introduced database type for handling specific features (nuances) of different databases
 
