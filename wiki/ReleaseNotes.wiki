@@ -5,7 +5,7 @@
   * Added db-migration:new goal for creating new migrations scripts (-Dname=... to specify a script name)
   * Added support for HSQL database
   * Bugs fixed: [http://code.google.com/p/c5-db-migration/issues/detail?id=5 5]
-  * Introduced database type for handling specific features (nuances) of different databases.
+  * Introduced database type for handling specific features (nuances) of different databases
 
 ==v0.9.2 [2008-09-25]==
 
