@@ -1,10 +1,10 @@
 ==v0.9.4 - NOT YET RELEASED==
   * !ScriptRunner improvements for MySQL (functions, stored procs, and comments)
 
-==v0.9.3 - NOT YET RELEASED==
+==v0.9.3 [2008-10-20] ==
   * Added db-migration:new goal for creating new migrations scripts (-Dname=... to specify a script name)
   * Added support for HSQL database
-  * "migrationsPath" no longer needs a filename wildcard at the end
+  * "migrationsPath" no longer needs a filename wildcard at the end (it's added automatically)
   * Bugs fixed: [http://code.google.com/p/c5-db-migration/issues/detail?id=5 5]
   * Introduced database type for handling specific features (nuances) of different databases
 
