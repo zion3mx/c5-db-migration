@@ -1,7 +1,8 @@
 ==v0.9.4 - NOT YET RELEASED==
   * !ScriptRunner improvements for MySQL (functions, stored procs, and comments)
-  * [http://code.google.com/p/c5-db-migration/issues/detail?id=8 8]: Added support for oracle database type and driver class determination (thanks zregvart!)
+  * [http://code.google.com/p/c5-db-migration/issues/detail?id=8 #8]: Added support for oracle database type and driver class determination (thanks zregvart!)
   * Added (optional) maven plugin configuration option "databaseType".
+  * [http://code.google.com/p/c5-db-migration/issues/detail?id=1 #1]: Allow for single line comment character '#'.
 
 ==v0.9.3 [2008-10-20] ==
   * Added db-migration:new goal for creating new migrations scripts (-Dname=... to specify a script name)
