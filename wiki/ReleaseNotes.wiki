@@ -1,5 +1,7 @@
-==v0.9.4 - NOT YET RELEASED==
+==v0.9.5 - NOT YET RELEASED==
   * !ScriptRunner improvements for MySQL (functions, stored procs, and comments)
+
+==v0.9.4 [2008-11-05]==
   * [http://code.google.com/p/c5-db-migration/issues/detail?id=1 #1]: Allow for single line comment character '#' (thanks joe.trewin)
   * [http://code.google.com/p/c5-db-migration/issues/detail?id=8 #8]: Added support for oracle database type and driver class determination (thanks zregvart!)
   * Added (optional) maven plugin configuration option "databaseType"
