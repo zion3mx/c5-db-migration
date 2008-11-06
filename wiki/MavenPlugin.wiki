@@ -106,7 +106,7 @@ Notes:
 || url|| JDBC connection URL || Yes || N/A ||
 || username|| Database username || Yes || N/A ||
 || password|| Database password || No || "" - empty string ||
-|| databaseType|| Database vendor type (MYSQL, POSTGRESQL, SQL_SERVER, HSQL, H2, DB2, ORACLE, UNKNOWN) || No || Autodetected from JDBC connection URL ||
+|| databaseType|| MYSQL, POSTGRESQL, SQL_SERVER, HSQL, H2, DB2, ORACLE, UNKNOWN || No || Autodetected from JDBC connection URL ||
 || || || || ||
 || migrationsPath || Location of migrations || NO || "src/main/db/migrations/*" ||
 || versionPattern || Date format for new migration filenames || NO || "yyyMMddHHmmss" ||
