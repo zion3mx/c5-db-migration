@@ -1,5 +1,6 @@
 ==v0.9.5 - NOT YET RELEASED==
   * !ScriptRunner improvements for MySQL (functions, stored procs, and comments)
+  * Plugin artifact id renamed to db-migration-maven-plugin as per the recommended naming convention
 
 ==v0.9.4 [2008-11-05]==
   * [http://code.google.com/p/c5-db-migration/issues/detail?id=1 #1]: Allow for single line comment character '#' (thanks joe.trewin)
