@@ -1,5 +1,8 @@
-==v0.9.5 - NOT YET RELEASED==
+==v0.9.6 - NOT YET RELEASED==
   * !ScriptRunner improvements for MySQL (functions, stored procs, and comments)
+
+==v0.9.5 - NOT YET RELEASED==
+  * db-migration:new now generates timestamps in UTC time
   * Plugin artifact id renamed to db-migration-maven-plugin as per the recommended naming convention
 
 ==v0.9.4 [2008-11-05]==
