@@ -3,6 +3,7 @@
 
 ==v0.9.5 - NOT YET RELEASED==
   * db-migration:new now generates timestamps in UTC time
+  * Use SLF4J instead of commons-logging
   * Plugin artifact id renamed to db-migration-maven-plugin as per the recommended naming convention
 
 ==v0.9.4 [2008-11-05]==
