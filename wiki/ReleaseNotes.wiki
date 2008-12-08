@@ -2,6 +2,7 @@
   * !ScriptRunner improvements for MySQL (functions, stored procs, and comments)
 
 ==v0.9.5 - NOT YET RELEASED==
+  * Repository url has changed to: http://mvn.carbonfive.com/groups/public
   * db-migration:new now generates timestamps in UTC time
   * Use SLF4J instead of commons-logging
   * Plugin artifact id renamed to db-migration-maven-plugin as per the recommended naming convention
