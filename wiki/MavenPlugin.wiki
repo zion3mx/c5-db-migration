@@ -77,7 +77,7 @@ $ mvn db-migration:validate
 
 When it's time to create a new migration script, you can do so by:
 {{{
-$ mvn db-migration:new -name=users_and_roles
+$ mvn db-migration:new -Dname=users_and_roles
 }}}
 Which results in a new, empty file called: src/main/db/migrations/yyyyMMddHHmmss_users_and_roles.sql (assuming default settings).
 
