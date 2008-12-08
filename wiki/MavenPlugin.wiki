@@ -108,15 +108,15 @@ Notes:
 || password|| Database password || No || "" - empty string ||
 || databaseType|| MYSQL, POSTGRESQL, SQL_SERVER, HSQL, H2, DB2, ORACLE, UNKNOWN || No || Autodetected from JDBC connection URL ||
 || || || || ||
-|| migrationsPath || Location of migrations || NO || "src/main/db/migrations/*" ||
-|| versionPattern || Date format for new migration filenames || NO || "yyyMMddHHmmss" ||
-|| migrationExtension || Filename extension for new migrations || NO || ".sql" ||
-|| versionTable || Name of version tracking table|| NO || "schema_version" ||
-|| versionColumn || Name of version column || NO || "version" ||
-|| appliedDate|| Name of applied-date column || NO || "applied_on" ||
-|| durationColumn || Name of duration column || NO || "duration" ||
-|| createSql || SQL to execute to create the database || NO || "create database %s"^1^ ||
-|| dropSql || SQL to execute to drop the database || NO || "drop database %s"^1^ ||
+|| migrationsPath || Location of migrations || No || "src/main/db/migrations/*" ||
+|| versionPattern || Date format for new migration filenames || No || "yyyMMddHHmmss" ||
+|| migrationExtension || Filename extension for new migrations || No || ".sql" ||
+|| versionTable || Name of version tracking table|| No || "schema_version" ||
+|| versionColumn || Name of version column || No || "version" ||
+|| appliedDate|| Name of applied-date column || No || "applied_on" ||
+|| durationColumn || Name of duration column || No || "duration" ||
+|| createSql || SQL to execute to create the database || No || "create database %s"^1^ ||
+|| dropSql || SQL to execute to drop the database || No || "drop database %s"^1^ ||
 
 Notes:
   # Where %s is the name of the database, as extracted from the JDBC connection URL.
