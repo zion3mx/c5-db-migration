@@ -110,6 +110,7 @@ Notes:
 || || || || ||
 || migrationsPath || Location of migrations || No || "src/main/db/migrations/*" ||
 || versionPattern || Date format for new migration filenames || No || "yyyMMddHHmmss" ||
+|| versionTimeStamp || Time zone for new migration filename date format || No || "UTC" ||
 || migrationExtension || Filename extension for new migrations || No || ".sql" ||
 || versionTable || Name of version tracking table|| No || "schema_version" ||
 || versionColumn || Name of version column || No || "version" ||
