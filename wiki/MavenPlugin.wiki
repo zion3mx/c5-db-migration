@@ -6,7 +6,7 @@ This functionality is easy to enable in a mavenized project. First you add the C
 <pluginRepositories>
   <pluginRepository>
     <id>c5-public-repository</id>
-    <url>http://mvn.carbonfive.com/public</url>
+    <url>http://mvn.carbonfive.com/groups/public</url>
   </pluginRepository>
 </pluginRepositories>
 }}}
@@ -19,7 +19,7 @@ And then you configure the migration plugin:
    ...
   <plugin>
     <groupId>com.carbonfive</groupId>
-    <artifactId>maven-db-migration-plugin</artifactId>
+    <artifactId>db-migration-maven-plugin</artifactId>
     <version>RELEASE</version>
     <configuration>
       <url>jdbc:mysql://localhost/myapp_test</url>
