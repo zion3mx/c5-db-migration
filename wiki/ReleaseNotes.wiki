@@ -3,7 +3,7 @@
 
 ==v0.9.5 - NOT YET RELEASED==
   * Repository url has changed to: http://mvn.carbonfive.com/groups/public
-  * db-migration:new now generates timestamps in UTC time (override using versionTimeStamp configuration option)
+  * db-migration:new now generates timestamps in UTC time (override using versionTimeZone configuration option)
   * Use SLF4J instead of commons-logging
   * Plugin artifact id renamed to db-migration-maven-plugin as per the recommended naming convention
 
