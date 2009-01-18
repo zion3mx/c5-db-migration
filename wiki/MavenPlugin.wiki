@@ -6,7 +6,7 @@ This functionality is easy to enable in a mavenized project. First you add the C
 <pluginRepositories>
   <pluginRepository>
     <id>c5-public-repository</id>
-    <url>http://mvn.carbonfive.com/groups/public</url>
+    <url>http://mvn.carbonfive.com/public</url>
   </pluginRepository>
 </pluginRepositories>
 }}}
@@ -88,7 +88,7 @@ Iâ€™ve created a simple, complete sample that shows off this functionality, itâ€
 The maven plugin has several goals:
 
 || *Goal* || *Description* ||
-||db-migration:new||Create a new, empty migration file (-name=... to include a comment in the filename)||
+||db-migration:new||Create a new, empty migration file (-name=... to include a name in the filename)||
 ||db-migration:create||Create a new, empty database^1^||
 ||db-migration:validate||Check to see if the database is up-to-date and report pending migrations||
 ||db-migration:migrate||Apply all pending migrations^2^||
