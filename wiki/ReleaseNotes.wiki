@@ -1,7 +1,7 @@
 ==v0.9.6 - NOT YET RELEASED== 
 
 ==v0.9.5 - NOT YET RELEASED==
-  * Maven repository url has changed to: http://mvn.carbonfive.com/groups/public
+  * Maven repository url has changed to: http://mvn.carbonfive.com/public
   * Migrated source from Carbon Five SVN to Google Code SVN.
   * db-migration:new now generates timestamps in UTC time (override using versionTimeZone configuration option)
   * Use SLF4J instead of commons-logging
