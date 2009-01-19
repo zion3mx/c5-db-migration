@@ -1,13 +1,15 @@
 ==v0.9.6 - NOT YET RELEASED== 
 
-==v0.9.5 - NOT YET RELEASED==
+==v0.9.5 - [2009-01-19]==
   * Maven repository url has changed to: http://mvn.carbonfive.com/public
   * Migrated source from Carbon Five SVN to Google Code SVN.
   * db-migration:new now generates timestamps in UTC time (override using versionTimeZone configuration option)
   * Use SLF4J instead of commons-logging
   * Plugin artifact id renamed to db-migration-maven-plugin as per the recommended naming convention
   * [http://code.google.com/p/c5-db-migration/issues/detail?id=6 #6] !ScriptRunner improvements for MySQL (delimiter support: functions and stored procs) (thanks tumakha!)
-  * Properly quote database names for MySQL, POstgreSQL, and MS SQL Server
+  * Properly quote database names for MySQL, PostgreSQL, and MS SQL Server
+
+Thanks for your patience while we continue to tighten things up for the impending 1.0 release.  I recognize that changing the artifact id, the repository, etc may be a little frustrating.  And we're undergoing some maven infrastructure changes at Carbon Five (We've moved to Nexus if you're curious... so far so good).  The good news is the dust is settling and it should be smoother sailing moving forward.
 
 ==v0.9.4 [2008-11-05]==
   * [http://code.google.com/p/c5-db-migration/issues/detail?id=1 #1]: Allow for single line comment character '#' (thanks joe.trewin)
