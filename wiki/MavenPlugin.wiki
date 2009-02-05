@@ -60,7 +60,7 @@ $ mvn db-migration:migrate
 If you want the plugin to also create the database, you can invoke the plugin like this:
 
 {{{
-$ mvn db-migration:create migration:migrate
+$ mvn db-migration:create db-migration:migrate
 }}}
 
 Sometimes you want to blow away the database and start fresh:
