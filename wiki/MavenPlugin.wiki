@@ -42,14 +42,14 @@ We've hard-coded values for url, username, and password for the sake of example.
 
 The plugin doesn't have dependencies on any specific JDBC drivers, so you'll have to include the dependencies which include your specific driver.
 
-Lastly, you drop in your migration scripts into the src/main/db/migrations directory, naming them using the pattern YYYYMMDDHHMMSS_description.sql, where YYYYMMDDHHMMSS is a fourteen digit timestamp. Some examples:
+Lastly, you drop in your migration scripts into the src/main/db/migrations directory, naming them using the pattern YYYYMMDDHHMMSS_name.sql, where YYYYMMDDHHMMSS is a fourteen digit timestamp. Some examples:
 
     * 20080115200312_create_users_table.sql
     * 20080518092345_add_default_users.sql
     * 20080718214051_add_lastvisit_column.sql
     * 20080802134142.sql
 
-The description is optional and isn’t used for anything, it’s just there so that other developers can get an idea of what a script does without having to open it.
+The name is optional and isn’t used for anything, it’s just there so that other developers can get an idea of what a script does without having to open it.
 
 From the command line, you can run the migration plugin like this:
 
@@ -101,23 +101,26 @@ Notes:
 
 ==Maven Plugin Configuration==
 
-|| *Option* || *Description* || *Required* || *Default* ||
-|| driver || JDBC driver class name (fully-qualified) || No || Autodetected from JDBC connection URL ||
-|| url|| JDBC connection URL || Yes || N/A ||
-|| username|| Database username || Yes || N/A ||
-|| password|| Database password || No || "" - empty string ||
-|| databaseType|| MYSQL, POSTGRESQL, SQL_SERVER, HSQL, H2, DB2, ORACLE, UNKNOWN || No || Autodetected from JDBC connection URL ||
-|| || || || ||
-|| migrationsPath || Location of migrations || No || "src/main/db/migrations/*" ||
-|| versionPattern || Date format for new migration filenames || No || "yyyMMddHHmmss" ||
-|| versionTimeZone || Time zone for new migration filename date format || No || "UTC" ||
-|| migrationExtension || Filename extension for new migrations || No || ".sql" ||
-|| versionTable || Name of version tracking table|| No || "schema_version" ||
-|| versionColumn || Name of version column || No || "version" ||
-|| appliedDate|| Name of applied-date column || No || "applied_on" ||
-|| durationColumn || Name of duration column || No || "duration" ||
-|| createSql || SQL to execute to create the database || No || "create database %s"^1^ ||
-|| dropSql || SQL to execute to drop the database || No || "drop database %s"^1^ ||
+===General Settings===
+
+Here is the exhaustive list of configuration options and the goal to which they apply.
+
+|| *Option* || *Description* || *Required* || *Default* || *Goals* ||
+|| driver || JDBC driver class name (fully-qualified) || No || Autodetected from JDBC connection URL || migrate, validate, drop, create, reset ||
+|| url|| JDBC connection URL || Yes || N/A || migrate, validate, drop, create, reset ||
+|| username|| Database username || Yes || N/A || migrate, validate, drop, create, reset ||
+|| password|| Database password || No || "" - empty string || migrate, validate, drop, create, reset ||
+|| databaseType|| MYSQL, POSTGRESQL, SQL_SERVER, HSQL, H2, DB2, ORACLE, UNKNOWN || No || Autodetected from JDBC connection URL || migrate, validate, drop, create, reset ||
+|| migrationsPath || Location of migrations || No || "src/main/db/migrations/*" ||migrate, validate, new ||
+|| versionPattern || Date format for new migration filenames || No || "yyyMMddHHmmss" || new ||
+|| versionTimeZone || Time zone for new migration filename date format || No || "UTC" || new ||
+|| migrationExtension || Filename extension for new migrations || No || ".sql" || new ||
+|| versionTable || Name of version tracking table|| No || "schema_version" || migrate, validate ||
+|| versionColumn || Name of version column || No || "version" || migrate, validate ||
+|| appliedDate|| Name of applied-date column || No || "applied_on" || migrate, validate ||
+|| durationColumn || Name of duration column || No || "duration" || migrate, validate ||
+|| createSql || SQL to execute to create the database || No || "create database %s"^1^ || create, drop, reset ||
+|| dropSql || SQL to execute to drop the database || No || "drop database %s"^1^ || create, drop, reset ||
 
 Notes:
   # Where %s is the name of the database, as extracted from the JDBC connection URL.
