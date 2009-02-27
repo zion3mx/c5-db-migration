@@ -1,7 +1,6 @@
 ==v0.9.7 - [2009-02-26]==
   * [http://code.google.com/p/c5-db-migration/issues/detail?id=16 #16] Don't reset custom delimiters (thanks tumakha!).
 
-http://code.google.com/p/c5-db-migration/issues/detail?id=10
 ==v0.9.6 - [2009-01-19]== 
   * Fixed missing slf4j-log4j12 jar which was breaking the db-migration-maven-plugin.
 
