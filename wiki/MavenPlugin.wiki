@@ -112,7 +112,7 @@ Here is the exhaustive list of configuration options and the goal to which they 
 || password|| Database password || No || "" - empty string || migrate, validate, drop, create, reset ||
 || databaseType|| MYSQL, POSTGRESQL, SQL_SERVER, HSQL, H2, DB2, ORACLE, UNKNOWN || No || Autodetected from JDBC connection URL || migrate, validate, drop, create, reset ||
 || migrationsPath || Location of migrations || No || "src/main/db/migrations/*" ||migrate, validate, new ||
-|| versionPattern || Date format for new migration filenames || No || "yyyMMddHHmmss" || new ||
+|| versionPattern || Date format for new migration filenames || No || "yyyyMMddHHmmss" || new ||
 || versionTimeZone || Time zone for new migration filename date format || No || "UTC" || new ||
 || migrationExtension || Filename extension for new migrations || No || ".sql" || new ||
 || versionTable || Name of version tracking table|| No || "schema_version" || migrate, validate ||
