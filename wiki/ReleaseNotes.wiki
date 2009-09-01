@@ -1,9 +1,9 @@
 ==v0.9.8 - [2009-09-01]==
-  * Maven groupId is now com.carbonfive.db-support.
+  * IMPORTANT: Maven groupId is now com.carbonfive.db-support.
   * [http://code.google.com/p/c5-db-migration/issues/detail?id=22 #22] Allow loading migrations from classpath (thanks kristof.jozsa!). 
   * [http://code.google.com/p/c5-db-migration/issues/detail?id=23 #23] Add the trailing slash to a migration path that's missing it (thanks jeff.maxwell!).
   * Ignore directories when resolving migrations (thanks Darren Brown!).
-  * Slightly improved output now include the full name of migrations instead of just the version (migrate and validate mojos).
+  * Slightly improved output now includes the full name of migrations instead of just the version (migrate and validate mojos).
 
 ==v0.9.7 - [2009-02-26]==
   * [http://code.google.com/p/c5-db-migration/issues/detail?id=16 #16] Don't reset custom delimiters (thanks tumakha!).
