@@ -1,4 +1,4 @@
-==v0.9.8 - [2009-09-01]==
+==v0.9.8 - [2009-09-02]==
   * IMPORTANT: Maven groupId is now com.carbonfive.db-support.
   * [http://code.google.com/p/c5-db-migration/issues/detail?id=22 #22] Allow loading migrations from classpath (thanks kristof.jozsa!). 
   * [http://code.google.com/p/c5-db-migration/issues/detail?id=23 #23] Add the trailing slash to a migration path that's missing it (thanks jeff.maxwell!).
