@@ -1,5 +1,6 @@
-==v0.9.9 - [TBD]==
+==v0.9.9-m1 (Milestone) - [2009-12-30]==
   * [http://code.google.com/p/c5-db-migration/issues/detail?id=28 #28] Execute last statement even if it's missing its delimiter.  Thanks nik9000!
+  * Updated many dependencies and cleaned up deprecations.
 
 ==v0.9.8 - [2009-09-02]==
   * IMPORTANT: Maven groupId is now com.carbonfive.db-support.
