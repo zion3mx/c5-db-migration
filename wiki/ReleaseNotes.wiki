@@ -1,21 +1,21 @@
-==v0.9.9-m1 (Milestone) - ![2009-12-30]==
+==v0.9.9-m1 (Milestone) on 2009-12-30==
   * [http://code.google.com/p/c5-db-migration/issues/detail?id=28 #28] Execute last statement even if it's missing its delimiter.  Thanks nik9000!
   * Updated many dependencies and cleaned up deprecations.
 
-==v0.9.8 - ![2009-09-02]==
+==v0.9.8 on 2009-09-02==
   * IMPORTANT: Maven groupId is now com.carbonfive.db-support.
   * [http://code.google.com/p/c5-db-migration/issues/detail?id=22 #22] Allow loading migrations from classpath (thanks kristof.jozsa!). 
   * [http://code.google.com/p/c5-db-migration/issues/detail?id=23 #23] Add the trailing slash to a migration path that's missing it (thanks jeff.maxwell!).
   * Ignore directories when resolving migrations (thanks Darren Brown!).
   * Slightly improved output now includes the full name of migrations instead of just the version (migrate and validate mojos).
 
-==v0.9.7 - ![2009-02-26]==
+==v0.9.7 on 2009-02-26==
   * [http://code.google.com/p/c5-db-migration/issues/detail?id=16 #16] Don't reset custom delimiters (thanks tumakha!).
 
-==v0.9.6 - ![2009-01-19]== 
+==v0.9.6 on 2009-01-19== 
   * Fixed missing slf4j-log4j12 jar which was breaking the db-migration-maven-plugin.
 
-==v0.9.5 - ![2009-01-19]==
+==v0.9.5 on 2009-01-19==
   * Maven repository url has changed to: http://mvn.carbonfive.com/public
   * Migrated source from Carbon Five SVN to Google Code SVN.
   * db-migration:new now generates timestamps in UTC time (override using versionTimeZone configuration option)
@@ -26,26 +26,26 @@
 
 Thanks for your patience while we continue to tighten things up for the impending 1.0 release.  I recognize that changing the artifact id, the repository, etc may be a little frustrating.  And we're undergoing some maven infrastructure changes at Carbon Five (We've moved to Nexus if you're curious... so far so good).  The good news is the dust is settling and it should be smoother sailing moving forward.
 
-==v0.9.4 - ![2008-11-05]==
+==v0.9.4 on 2008-11-05==
   * [http://code.google.com/p/c5-db-migration/issues/detail?id=1 #1]: Allow for single line comment character '#' (thanks joe.trewin)
   * [http://code.google.com/p/c5-db-migration/issues/detail?id=8 #8]: Added support for oracle database type and driver class determination (thanks zregvart!)
   * Added (optional) maven plugin configuration option "databaseType"
 
-==v0.9.3 - ![2008-10-20] ==
+==v0.9.3 on 2008-10-20==
   * Added db-migration:new goal for creating new migrations scripts (-Dname=... to specify a script name)
   * Added support for HSQL database
   * "migrationsPath" no longer needs a filename wildcard at the end (it's added automatically)
   * Bugs fixed: [http://code.google.com/p/c5-db-migration/issues/detail?id=5 5]
   * Introduced database type for handling specific features (nuances) of different databases
 
-==v0.9.2 - ![2008-09-25]==
+==v0.9.2 on 2008-09-25==
 
   * MS SQL Server is now supported (tested against SQL Server 2000)
   * Migrations can be written in [http://groovy.codehaus.org/ Groovy] (use the same naming with the extension .groovy) and use the jdbc connection that's made available to the script by the name `connection`
   * Added more robust testing for MySQL, PostgreSQL, and MS SQL Server 2000
   * Maven plugin behaves better with multi-module projects
 
-==v0.9.1 - ![2008-08-29]==
+==v0.9.1 on 2008-08-29==
 
 A number of changes were made that break backwards compatibility.  We try to keep things stable but had to make a few fundamental improvements before deeming this framework worthy of a 1.0 status.  The framework is now stabilizing and we don't expect as many sweeping changes before 1.0.
 
