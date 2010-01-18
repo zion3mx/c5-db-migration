@@ -126,6 +126,37 @@ Here is the exhaustive list of configuration options and the goal to which they 
 Notes:
   # Where %s is the name of the database, as extracted from the JDBC connection URL.
 
+==Fail the Build if the Database is Out of Date==
+
+Tests can sometime fail in weird ways if they're run against an out-of-date (i.e. there are pending migrations) database.  It's easy to configure the plugin to report pending migrations and fail the build if the database is out-of-date.  Here's an example of the configuration required to do so:
+
+{{{
+...
+<build>
+   ...
+  <plugin>
+    <groupId>com.carbonfive.db-support</groupId>
+    <artifactId>db-migration-maven-plugin</artifactId>
+    <version>RELEASE</version>
+    <executions>
+      <execution>
+        <phase>validate</phase>
+        <goals>
+          <goal>check</goal>
+        </goals>
+      </execution>
+    </executions>
+    <configuration>
+      <url>jdbc:mysql://localhost/myapp_test</url>
+      <username>dev</username>
+      <password>dev</password>
+    </configuration>
+    ...
+  </plugin>
+</build>
+...
+}}}
+
 ==Handling Multiple Environments== 
 
 In any real world application, a number of environments must be supported.  At the very least, there are unit testing and application databases for each developer.  And then most likely, a staging and production database.  This can be handled using a native maven feature, [http://maven.apache.org/guides/introduction/introduction-to-profiles.html build profiles].
