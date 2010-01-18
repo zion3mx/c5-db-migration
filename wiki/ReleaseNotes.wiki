@@ -1,3 +1,6 @@
+==v0.9.9-m2 (Milestone) on 2010-01-18==
+  * [http://code.google.com/p/c5-db-migration/issues/detail?id=30 #30] Added new goal "check" which can be plugged into the lifecycle and fail a build if there are pending migrations (i.e. don't run the tests unless the database is up to date).
+
 ==v0.9.9-m1 (Milestone) on 2009-12-30==
   * [http://code.google.com/p/c5-db-migration/issues/detail?id=28 #28] Execute last statement even if it's missing its delimiter.  Thanks nik9000!
   * Updated many dependencies and cleaned up deprecations.
