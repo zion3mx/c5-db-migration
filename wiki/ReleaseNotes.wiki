@@ -1,5 +1,5 @@
 ==v0.9.9-m3 (Milestone) on (pending)==
-* Bind 'check' goal to 'process-test-resources' phase by default
+  * Bind 'check' goal to 'process-test-resources' phase by default
 
 ==v0.9.9-m2 (Milestone) on 2010-01-18==
   * [http://code.google.com/p/c5-db-migration/issues/detail?id=30 #30] Added new goal "check" which can be plugged into the lifecycle and fail a build if there are pending migrations (i.e. don't run the tests unless the database is up to date).
