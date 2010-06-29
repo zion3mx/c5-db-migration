@@ -1,5 +1,12 @@
-==v0.9.9-m3 (Milestone) on (pending)==
-  * Bind 'check' goal to 'process-test-resources' phase by default
+==v0.9.9-m5 (Milestone) on 2010-06-28==
+  * Bind 'check' goal to 'process-test-resources' phase by default.  Thanks alon!
+  * Fixed a bug with over-eager detection of postgresql procs/funcs.
+  * Throw a migration exception when duplicate migration versions are found.
+  * Make convertMigrationsLocation() protected and added DatabaseType as a parameter
+for better subclassing potential.
+  * Support native syntax for postgresql funcs/procs.
+  * [http://code.google.com/p/c5-db-migration/issues/detail?id=35 #35] Switched to isReadable(), which works for migrations on the filesystem or within jars.  Thanks matthew.mceachen!
+  * Miscellaneous code cleanup.
 
 ==v0.9.9-m2 (Milestone) on 2010-01-18==
   * [http://code.google.com/p/c5-db-migration/issues/detail?id=30 #30] Added new goal "check" which can be plugged into the lifecycle and fail a build if there are pending migrations (i.e. don't run the tests unless the database is up to date).
